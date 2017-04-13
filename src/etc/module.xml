@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * This file is part of the teamneusta/m2t3 project.
+ * Copyright (c) 2017 neusta GmbH | Ein team neusta Unternehmen
+ * For the full copyright and license information, please view the LICENSE file that was distributed with this source code.
+ * @license https://opensource.org/licenses/BSD-3-Clause 3-Clause BSD License
+ *
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Module/etc/module.xsd">
+    <module name="Neusta_Magentypo" setup_version="1.0.0">
+    </module>
+</config>

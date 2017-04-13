@@ -1,0 +1,31 @@
+<?php
+/**
+ * This file is part of the teamneusta/m2t3 project.
+ * Copyright (c) 2017 neusta GmbH | Ein team neusta Unternehmen
+ * For the full copyright and license information, please view the LICENSE file that was distributed with this source code.
+ * @license https://opensource.org/licenses/BSD-3-Clause 3-Clause BSD License
+ *
+ */
+
+// @codingStandardsIgnoreFile
+
+?>
+<!doctype html>
+<html <?php /* @escapeNotVerified */ echo $htmlAttributes ?>>
+    <head <?php /* @escapeNotVerified */ echo $headAttributes ?>>
+        <?php
+        /**
+         * @ToDo move virtual page URI to Config
+         */
+        ?>
+        <!--#include virtual="/?pageInformation=JsHeader&no_cache=1" -->
+        <!--#include virtual="/?pageInformation=CssHeader&no_cache=1" -->
+        <?php /* @escapeNotVerified */ echo $requireJs ?>
+        <?php /* @escapeNotVerified */ echo $headContent ?>
+        <?php /* @escapeNotVerified */ echo $headAdditional ?>
+    </head>
+    <body data-container="body" data-mage-init='{"loaderAjax": {}, "loader": { "icon": "<?php /* @escapeNotVerified */ echo $loaderIcon; ?>"}}' <?php /* @escapeNotVerified */ echo $bodyAttributes ?>>
+        <?php /* @escapeNotVerified */ echo $layoutContent ?>
+        <!--#include virtual="/?pageInformation=JsFooter&no_cache=1" -->
+    </body>
+</html>

@@ -1,0 +1,47 @@
+{
+  "name": "TeamNeustaGmbh/m2t3-magento",
+  "description": "Combines strength of Magento2 and TYPO3 with usage of SSI/ESI technologies.",
+  "type": "magento2-module",
+  "version": "1.0.0",
+  "license": [
+    "BSD-3-Clause"
+  ],
+  "authors": [
+    {
+      "name": "Thomas von Gostomski",
+      "email": "t.gostomski@neusta.de"
+    }
+  ],
+  "repositories": [
+    {
+      "type": "composer",
+      "url": "https://repo.magento.com/"
+    }
+  ],
+  "require": {
+    "php": "~7.0.0",
+    "ruflin/elastica": "^5.0",
+    "magento/product-community-edition": "2.1.1"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^4.1"
+  },
+  "autoload": {
+    "files": [
+      "src/registration.php"
+    ],
+    "psr-4": {
+      "TeamNeustaGmbh\\M2T3\\": "src"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "TeamNeustaGmbh\\M2T3\\": "src"
+    },
+    "files": [
+      "src/registration.php"
+    ]
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true
+}

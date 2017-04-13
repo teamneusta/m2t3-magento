@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ This file is part of the TeamNeustaGmbH/m2t3 package.
+  ~
+  ~ Copyright (c) 2017 neusta GmbH | Ein team neusta Unternehmen
+  ~
+  ~ For the full copyright and license information, please view the LICENSE file that was distributed with this source code.
+  ~
+  ~ @license https://opensource.org/licenses/BSD-3-Clause BSD-3-Clause License
+  -->
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Indexer/etc/indexer.xsd">
+    <indexer id="magentypo_customergroup" view_id="magentypo_customer_dummy" class="TeamNeustaGmbh\M2T3\Model\Indexer\CustomerGroup">
+        <title translate="true">MagenTYPO Customer</title>
+        <description translate="true">Index all Customer Groups</description>
+    </indexer>
+    <indexer id="magentypo_product" view_id="magentypo_product" class="TeamNeustaGmbh\M2T3\Model\Indexer\Products">
+        <title translate="true">MagenTYPO Product</title>
+        <description translate="true">Index all Products</description>
+    </indexer>
+    <indexer id="magentypo_category" view_id="magentypo_category" class="TeamNeustaGmbh\M2T3\Model\Indexer\Categories">
+        <title translate="true">MagenTYPO Category</title>
+        <description translate="true">Index all Categories</description>
+    </indexer>
+</config>
