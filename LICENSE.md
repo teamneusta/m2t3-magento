@@ -1,5 +1,3 @@
-BSD-3-Clause License
-
 Copyright (c) 2017 neusta GmbH | Ein team neusta Unternehmen
 
 Redistribution and use in source and binary forms, with or without modification,
