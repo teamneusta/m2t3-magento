@@ -7,4 +7,4 @@
  *
  */
 use Magento\Framework\Component\ComponentRegistrar;
-ComponentRegistrar::register(ComponentRegistrar::MODULE, 'Neusta_M2T3', __DIR__);
+ComponentRegistrar::register(ComponentRegistrar::MODULE, 'Neusta_Magentypo', __DIR__);
