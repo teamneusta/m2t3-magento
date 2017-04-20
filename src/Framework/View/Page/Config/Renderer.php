@@ -9,7 +9,7 @@
  * @license https://opensource.org/licenses/BSD-3-Clause BSD-3-Clause License
  */
 
-namespace TeamNeustaGmbh\M2T3\Framework\View\Page\Config;
+namespace TeamNeustaGmbh\Magentypo\Framework\View\Page\Config;
 
 class Renderer extends \Magento\Framework\View\Page\Config\Renderer
 {

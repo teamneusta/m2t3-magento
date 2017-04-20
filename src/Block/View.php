@@ -9,14 +9,14 @@
  * @license https://opensource.org/licenses/BSD-3-Clause BSD-3-Clause License
  */
 
-namespace TeamNeustaGmbh\M2T3\Block;
+namespace TeamNeustaGmbh\Magentypo\Block;
 
 use Magento\Framework\View\Element\Template;
 
 /**
  * Class View
  *
- * @package TeamNeustaGmbh\M2T3\Block
+ * @package TeamNeustaGmbh\Magentypo\Block
  */
 class View extends Template
 {

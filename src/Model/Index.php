@@ -9,13 +9,13 @@
  * @license https://opensource.org/licenses/BSD-3-Clause BSD-3-Clause License
  */
 
-namespace TeamNeustaGmbh\M2T3\Model;
+namespace TeamNeustaGmbh\Magentypo\Model;
 use Magento\Framework\ObjectManager\ObjectManager;
 
 /**
  * Class Index
  *
- * @package TeamNeustaGmbh\M2T3\Model
+ * @package TeamNeustaGmbh\Magentypo\Model
  */
 class Index
 {

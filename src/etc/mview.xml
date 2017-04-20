@@ -11,8 +11,8 @@
 
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Mview/etc/mview.xsd">
     <view id="magentypo_customer_dummy" class="Magento\Customer\Model\Indexer\Mview\Dummy" group="indexer"/>
-    <view id="magentypo_product" class="TeamNeustaGmbh\M2T3\Model\Indexer\Products" group="indexer">
+    <view id="magentypo_product" class="TeamNeustaGmbh\Magentypo\Model\Indexer\Products" group="indexer">
     </view>
-    <view id="magentypo_category" class="TeamNeustaGmbh\M2T3\Model\Indexer\Categories" group="indexer">
+    <view id="magentypo_category" class="TeamNeustaGmbh\Magentypo\Model\Indexer\Categories" group="indexer">
     </view>
 </config>

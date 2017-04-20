@@ -9,9 +9,9 @@
  * @license https://opensource.org/licenses/BSD-3-Clause BSD-3-Clause License
  */
 
-namespace TeamNeustaGmbh\M2T3\Test\Unit\Framework\View\Page\Config;
+namespace TeamNeustaGmbh\Magentypo\Test\Unit\Framework\View\Page\Config;
 
-use TeamNeustaGmbh\M2T3\Framework\View\Page\Config\Renderer;
+use TeamNeustaGmbh\Magentypo\Framework\View\Page\Config\Renderer;
 
 class RenderTest extends \PHPUnit_Framework_TestCase
 {
@@ -21,7 +21,7 @@ class RenderTest extends \PHPUnit_Framework_TestCase
     private $objectManager;
 
     /**
-     * @var \TeamNeustaGmbh\M2T3\Framework\View\Page\Config\Renderer
+     * @var \TeamNeustaGmbh\Magentypo\Framework\View\Page\Config\Renderer
      */
     private $renderer;
 
@@ -62,7 +62,7 @@ class RenderTest extends \PHPUnit_Framework_TestCase
 
         $this->objectManager = new \Magento\Framework\TestFramework\Unit\Helper\ObjectManager($this);
 
-        $this->renderer = $this->objectManager->getObject('\TeamNeustaGmbh\M2T3\Framework\View\Page\Config\Renderer',['pageConfig' => $pageConfig]);
+        $this->renderer = $this->objectManager->getObject('\TeamNeustaGmbh\Magentypo\Framework\View\Page\Config\Renderer',['pageConfig' => $pageConfig]);
     }
 
     /**

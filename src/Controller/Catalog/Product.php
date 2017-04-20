@@ -9,7 +9,7 @@
  * @license https://opensource.org/licenses/BSD-3-Clause BSD-3-Clause License
  */
 
-namespace TeamNeustaGmbh\M2T3\Controller\Catalog;
+namespace TeamNeustaGmbh\Magentypo\Controller\Catalog;
 
 use Magento\Framework\App\Action\Action;
 use Magento\Framework\Controller\ResultFactory;
@@ -19,7 +19,7 @@ use Magento\Framework\App\Action\Context;
 /**
  * Class Product
  *
- * @package TeamNeustaGmbh\M2T3\Controller\Catalog
+ * @package TeamNeustaGmbh\Magentypo\Controller\Catalog
  */
 class Product extends Action
 {

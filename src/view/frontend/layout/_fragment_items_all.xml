@@ -11,7 +11,7 @@
 <page layout="1column"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../../../lib/internal/Magento/Framework/View/Layout/etc/page_configuration.xsd" >
     <body>
         <referenceContainer name="content">
-            <block class="TeamNeustaGmbh\M2T3\Block\View" name="anything" template="view.phtml" />
+            <block class="TeamNeustaGmbh\Magentypo\Block\View" name="anything" template="view.phtml" />
         </referenceContainer>
     </body>
 </page>
