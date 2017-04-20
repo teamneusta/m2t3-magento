@@ -9,18 +9,18 @@
  * @license https://opensource.org/licenses/BSD-3-Clause BSD-3-Clause License
  */
 
-namespace TeamNeustaGmbh\M2T3\Model\Indexer;
+namespace TeamNeustaGmbh\Magentypo\Model\Indexer;
 
 use Magento\Catalog\Model\ResourceModel\Product\Collection;
 use Magento\CatalogUrlRewrite\Model\ResourceModel\Category\ProductCollection;
 use Magento\Framework\Indexer\ActionInterface as IndexerInterface;
 use Magento\Framework\Mview\ActionInterface as MviewInterface;
-use TeamNeustaGmbh\M2T3\Model\Elasticsearch\Install\Product;
+use TeamNeustaGmbh\Magentypo\Model\Elasticsearch\Install\Product;
 
 /**
  * Class Products
  *
- * @package TeamNeustaGmbh\M2T3\Model\Indexer
+ * @package TeamNeustaGmbh\Magentypo\Model\Indexer
  */
 class Products implements IndexerInterface, MviewInterface
 {

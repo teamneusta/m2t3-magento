@@ -8,7 +8,7 @@
  *
  * @license https://opensource.org/licenses/BSD-3-Clause BSD-3-Clause License
  */
-namespace TeamNeustaGmbh\M2T3\Test\Unit\Framework\View\Result;
+namespace TeamNeustaGmbh\Magentypo\Test\Unit\Framework\View\Result;
 
 class PageTest extends \PHPUnit_Framework_TestCase
 {

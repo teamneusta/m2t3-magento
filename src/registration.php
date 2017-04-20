@@ -6,8 +6,5 @@
  * @license https://opensource.org/licenses/BSD-3-Clause 3-Clause BSD License
  *
  */
-\Magento\Framework\Component\ComponentRegistrar::register(
-    \Magento\Framework\Component\ComponentRegistrar::MODULE,
-    'Neusta_M2T3',
-    __DIR__
-);
+use Magento\Framework\Component\ComponentRegistrar;
+ComponentRegistrar::register(ComponentRegistrar::MODULE, 'Neusta_Magentypo', __DIR__);

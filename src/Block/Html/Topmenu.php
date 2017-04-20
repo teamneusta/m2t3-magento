@@ -9,13 +9,13 @@
  * @license https://opensource.org/licenses/BSD-3-Clause BSD-3-Clause License
  */
 
-namespace TeamNeustaGmbh\M2T3\Block\Html;
+namespace TeamNeustaGmbh\Magentypo\Block\Html;
 use Magento\Framework\View\Element\Template;
 
 /**
  * Class Topmenu
  *
- * @package TeamNeustaGmbh\M2T3\Block\Html
+ * @package TeamNeustaGmbh\Magentypo\Block\Html
  */
 class Topmenu extends Template
 {

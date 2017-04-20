@@ -9,7 +9,7 @@
  * @license https://opensource.org/licenses/BSD-3-Clause BSD-3-Clause License
  */
 
-namespace TeamNeustaGmbh\M2T3\Controller\Catalog;
+namespace TeamNeustaGmbh\Magentypo\Controller\Catalog;
 
 use Magento\Framework\App\Action\Action;
 use Magento\Framework\App\Action\Context;

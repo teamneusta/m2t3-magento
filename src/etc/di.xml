@@ -10,8 +10,8 @@
 
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
     <!-- change Template for magentypo head request -->
-    <preference for="\Magento\Framework\View\Result\Page" type="\TeamNeustaGmbh\M2T3\Framework\View\Result\Page" />
-    <type name="\TeamNeustaGmbh\M2T3\Framework\View\Result\Page">
+    <preference for="\Magento\Framework\View\Result\Page" type="\TeamNeustaGmbh\Magentypo\Framework\View\Result\Page" />
+    <type name="\TeamNeustaGmbh\Magentypo\Framework\View\Result\Page">
         <arguments>
             <argument name="layoutReaderPool" xsi:type="object">pageConfigRenderPool</argument>
             <argument name="generatorPool" xsi:type="object">pageLayoutGeneratorPool</argument>
@@ -20,47 +20,47 @@
             <argument name="typoBodyClassTemplate" xsi:type="string">Neusta_Magentypo::magentypo/body.phtml</argument>
         </arguments>
     </type>
-    <type name="\TeamNeustaGmbh\M2T3\Model\Index" shared="false"/>
+    <type name="\TeamNeustaGmbh\Magentypo\Model\Index" shared="false"/>
     <!-- Avoid rendering of META and TITLE Data in magentypo-head request -->
-    <preference for="\Magento\Framework\View\Page\Config\Renderer" type="\TeamNeustaGmbh\M2T3\Framework\View\Page\Config\Renderer" />
+    <preference for="\Magento\Framework\View\Page\Config\Renderer" type="\TeamNeustaGmbh\Magentypo\Framework\View\Page\Config\Renderer" />
 
     <!-- Indexer related Stuff -->
-    <type name="\TeamNeustaGmbh\M2T3\Model\Indexer\CustomerGroup">
+    <type name="\TeamNeustaGmbh\Magentypo\Model\Indexer\CustomerGroup">
         <arguments>
             <argument name="customerGroups" xsi:type="object">\Magento\Customer\Model\ResourceModel\Group\Collection</argument>
-            <argument name="installer" xsi:type="object">\TeamNeustaGmbh\M2T3\Model\Elasticsearch\Install\CustomerGroup</argument>
+            <argument name="installer" xsi:type="object">\TeamNeustaGmbh\Magentypo\Model\Elasticsearch\Install\CustomerGroup</argument>
         </arguments>
     </type>
-    <type name="\TeamNeustaGmbh\M2T3\Model\Indexer\Products">
+    <type name="\TeamNeustaGmbh\Magentypo\Model\Indexer\Products">
         <arguments>
             <argument name="productCollection" xsi:type="object">\Magento\Catalog\Model\ResourceModel\Product\Collection</argument>
-            <argument name="installer" xsi:type="object">\TeamNeustaGmbh\M2T3\Model\Elasticsearch\Install\Product</argument>
+            <argument name="installer" xsi:type="object">\TeamNeustaGmbh\Magentypo\Model\Elasticsearch\Install\Product</argument>
         </arguments>
     </type>
-    <type name="\TeamNeustaGmbh\M2T3\Model\Indexer\Categories">
+    <type name="\TeamNeustaGmbh\Magentypo\Model\Indexer\Categories">
         <arguments>
             <argument name="categoryCollection" xsi:type="object">\Magento\Catalog\Model\ResourceModel\Category\Collection</argument>
-            <argument name="installer" xsi:type="object">\TeamNeustaGmbh\M2T3\Model\Elasticsearch\Install\Category</argument>
+            <argument name="installer" xsi:type="object">\TeamNeustaGmbh\Magentypo\Model\Elasticsearch\Install\Category</argument>
         </arguments>
     </type>
 
     <!-- Index Type Prepare -->
-    <type name="\TeamNeustaGmbh\M2T3\Model\Elasticsearch\Install\CustomerGroup">
+    <type name="\TeamNeustaGmbh\Magentypo\Model\Elasticsearch\Install\CustomerGroup">
         <arguments>
-            <argument name="resource" xsi:type="object">\TeamNeustaGmbh\M2T3\Model\Elasticsearch\Resource</argument>
+            <argument name="resource" xsi:type="object">\TeamNeustaGmbh\Magentypo\Model\Elasticsearch\Resource</argument>
         </arguments>
     </type>
-    <type name="\TeamNeustaGmbh\M2T3\Model\Elasticsearch\Install\Category">
+    <type name="\TeamNeustaGmbh\Magentypo\Model\Elasticsearch\Install\Category">
         <arguments>
-            <argument name="resource" xsi:type="object">\TeamNeustaGmbh\M2T3\Model\Elasticsearch\Resource</argument>
+            <argument name="resource" xsi:type="object">\TeamNeustaGmbh\Magentypo\Model\Elasticsearch\Resource</argument>
         </arguments>
     </type>
-    <type name="\TeamNeustaGmbh\M2T3\Model\Elasticsearch\Install\Product">
+    <type name="\TeamNeustaGmbh\Magentypo\Model\Elasticsearch\Install\Product">
         <arguments>
-            <argument name="resource" xsi:type="object">\TeamNeustaGmbh\M2T3\Model\Elasticsearch\Resource</argument>
+            <argument name="resource" xsi:type="object">\TeamNeustaGmbh\Magentypo\Model\Elasticsearch\Resource</argument>
         </arguments>
     </type>
-    <type name="\TeamNeustaGmbh\M2T3\Model\Elasticsearch\Resource">
+    <type name="\TeamNeustaGmbh\Magentypo\Model\Elasticsearch\Resource">
         <arguments>
             <argument name="host" xsi:type="string">elasticsearch</argument>
             <argument name="port" xsi:type="string">9200</argument>

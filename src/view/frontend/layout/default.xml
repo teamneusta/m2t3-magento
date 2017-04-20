@@ -17,13 +17,13 @@
             <referenceBlock name="copyright" remove="true"/>
             <referenceBlock name="report.bugs" remove="true"/>
             <referenceBlock name="form.subscribe" remove="true"/>
-            <block class="TeamNeustaGmbh\M2T3\Block\Footer" name="typo-footer" template="footer.phtml" />
+            <block class="TeamNeustaGmbh\Magentypo\Block\Footer" name="typo-footer" template="footer.phtml" />
         </container>
         <referenceContainer name="page.wrapper">
             <referenceContainer name="header.container" display="false"/>
             <referenceContainer name="page.top" display="false" />
             <container name="magentypo.header.container" as="magentypo_header_container" label="Magentypo Page Header Container" before="header.container">
-                <block class="TeamNeustaGmbh\M2T3\Block\Html\Topmenu" name="magentypo.header" template="html/topmenu.phtml" />
+                <block class="TeamNeustaGmbh\Magentypo\Block\Html\Topmenu" name="magentypo.header" template="html/topmenu.phtml" />
             </container>
         </referenceContainer>
         <referenceContainer name="before.body.end">

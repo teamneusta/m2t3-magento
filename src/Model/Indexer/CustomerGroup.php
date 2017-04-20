@@ -9,7 +9,7 @@
  * @license https://opensource.org/licenses/BSD-3-Clause BSD-3-Clause License
  */
 
-namespace TeamNeustaGmbh\M2T3\Model\Indexer;
+namespace TeamNeustaGmbh\Magentypo\Model\Indexer;
 use Magento\Customer\Model\ResourceModel\Group\Collection as CustomerGroupCollection;
 use Magento\Framework\Indexer\ActionInterface as IndexerInterface;
 use Magento\Framework\Mview\ActionInterface as MviewInterface;
@@ -17,7 +17,7 @@ use Magento\Framework\Mview\ActionInterface as MviewInterface;
 /**
  * Class CustomerGroups
  *
- * @package TeamNeustaGmbh\M2T3\Model\Indexer
+ * @package TeamNeustaGmbh\Magentypo\Model\Indexer
  */
 class CustomerGroup implements IndexerInterface, MviewInterface
 {
@@ -32,7 +32,7 @@ class CustomerGroup implements IndexerInterface, MviewInterface
      *
      * @param CustomerGroupCollection $customerGroups
      */
-    public function __construct(CustomerGroupCollection $customerGroups, \TeamNeustaGmbh\M2T3\Model\Elasticsearch\Install\CustomerGroup $installer)
+    public function __construct(CustomerGroupCollection $customerGroups, \TeamNeustaGmbh\Magentypo\Model\Elasticsearch\Install\CustomerGroup $installer)
     {
         $this->customerGroups = $customerGroups;
         $this->elasticaType = $installer->createIndex();

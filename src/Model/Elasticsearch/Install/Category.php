@@ -9,16 +9,16 @@
  * @license https://opensource.org/licenses/BSD-3-Clause BSD-3-Clause License
  */
 
-namespace TeamNeustaGmbh\M2T3\Model\Elasticsearch\Install;
+namespace TeamNeustaGmbh\Magentypo\Model\Elasticsearch\Install;
 
 use Elastica\Client;
 use Elastica\Type\Mapping;
-use TeamNeustaGmbh\M2T3\Model\Elasticsearch\Resource;
+use TeamNeustaGmbh\Magentypo\Model\Elasticsearch\Resource;
 
 /**
  * Class Category
  *
- * @package TeamNeustaGmbh\M2T3\Model\Elasticsearch\Install
+ * @package TeamNeustaGmbh\Magentypo\Model\Elasticsearch\Install
  */
 class Category
 {

@@ -8,6 +8,6 @@
   ~ @license https://opensource.org/licenses/BSD-3-Clause BSD-3-Clause License
   -->
 
-<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../../../lib/internal/Magento/Framework/View/Layout/etc/page_configuration.xsd">
-    <block class="TeamNeustaGmbh\M2T3\Block\View" name="root" template="view.phtml" />
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <block class="TeamNeustaGmbh\Magentypo\Block\View" name="root" template="view.phtml" />
 </page>

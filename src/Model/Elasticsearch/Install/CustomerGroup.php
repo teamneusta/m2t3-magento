@@ -9,17 +9,17 @@
  * @license https://opensource.org/licenses/BSD-3-Clause BSD-3-Clause License
  */
 
-namespace TeamNeustaGmbh\M2T3\Model\Elasticsearch\Install;
+namespace TeamNeustaGmbh\Magentypo\Model\Elasticsearch\Install;
 
 use Elastica\Client;
 use Elastica\Type\Mapping;
 use Magento\Framework\Webapi\Exception;
-use TeamNeustaGmbh\M2T3\Model\Elasticsearch\Resource;
+use TeamNeustaGmbh\Magentypo\Model\Elasticsearch\Resource;
 
 /**
  * Class CustomerGroup
  *
- * @package TeamNeustaGmbh\M2T3\Model\Elasticsearch\Install
+ * @package TeamNeustaGmbh\Magentypo\Model\Elasticsearch\Install
  */
 class CustomerGroup
 {

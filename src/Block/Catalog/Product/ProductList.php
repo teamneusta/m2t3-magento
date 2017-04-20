@@ -9,14 +9,14 @@
  * @license https://opensource.org/licenses/BSD-3-Clause BSD-3-Clause License
  */
 
-namespace TeamNeustaGmbh\M2T3\Block\Catalog\Product;
+namespace TeamNeustaGmbh\Magentypo\Block\Catalog\Product;
 
 use Magento\Customer\Model\Context as CustomerContext;
 
 /**
  * Class View
  *
- * @package TeamNeustaGmbh\M2T3\Block\Catalog\Product
+ * @package TeamNeustaGmbh\Magentypo\Block\Catalog\Product
  */
 class ProductList extends \Magento\Catalog\Block\Product\AbstractProduct
 {

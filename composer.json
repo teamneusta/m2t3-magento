@@ -31,12 +31,12 @@
       "src/registration.php"
     ],
     "psr-4": {
-      "TeamNeustaGmbh\\M2T3\\": "src"
+      "TeamNeustaGmbh\\Magentypo\\": "src"
     }
   },
   "autoload-dev": {
     "psr-4": {
-      "TeamNeustaGmbh\\M2T3\\": "src"
+      "TeamNeustaGmbh\\Magentypo\\": "src"
     },
     "files": [
       "src/registration.php"

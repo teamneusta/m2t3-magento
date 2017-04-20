@@ -9,19 +9,19 @@
  * @license https://opensource.org/licenses/BSD-3-Clause BSD-3-Clause License
  */
 
-namespace TeamNeustaGmbh\M2T3\Controller\Items;
+namespace TeamNeustaGmbh\Magentypo\Controller\Items;
 
 
 use Magento\Framework\App\Action\Action;
 use Magento\Framework\App\Action\Context;
 use Magento\Framework\View\Layout;
 use Magento\Framework\View\Result\PageFactory;
-use TeamNeustaGmbh\M2T3\Model\Index;
+use TeamNeustaGmbh\Magentypo\Model\Index;
 
 /**
  * Class Index
  *
- * @package TeamNeustaGmbh\M2T3\Controller\Index
+ * @package TeamNeustaGmbh\Magentypo\Controller\Index
  */
 class Debug extends Action
 {
