@@ -21,7 +21,8 @@
   "require": {
     "php": "~7.0.0",
     "ruflin/elastica": "^5.0",
-    "magento/product-community-edition": "~2.1.1"
+    "magento/product-community-edition": "~2.1.1",
+    "roave/security-advisories": "dev-master"
   },
   "require-dev": {
     "phpunit/phpunit": "^4.1"
