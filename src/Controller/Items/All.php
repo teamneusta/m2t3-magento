@@ -9,7 +9,7 @@
  * @license https://opensource.org/licenses/BSD-3-Clause BSD-3-Clause License
  */
 
-namespace TeamNeustaGmbh\M2T3\Controller\Items;
+namespace TeamNeustaGmbh\Magentypo\Controller\Items;
 
 
 use Magento\Framework\App\Action\Action;
@@ -21,7 +21,7 @@ use Magento\Framework\View\Result\PageFactory;
 /**
  * Class All
  *
- * @package TeamNeustaGmbh\M2T3\Controller\Index
+ * @package TeamNeustaGmbh\Magentypo\Controller\Index
  */
 class All extends Action
 {

@@ -9,7 +9,7 @@
  * @license https://opensource.org/licenses/BSD-3-Clause BSD-3-Clause License
  */
 
-namespace TeamNeustaGmbh\M2T3\Model\Elasticsearch;
+namespace TeamNeustaGmbh\Magentypo\Model\Elasticsearch;
 
 use Elastica\Client;
 use Magento\Framework\App\DeploymentConfig;
@@ -17,7 +17,7 @@ use Magento\Framework\App\DeploymentConfig;
 /**
  * Class Resource
  *
- * @package TeamNeustaGmbh\M2T3\Model\Elasticsearch
+ * @package TeamNeustaGmbh\Magentypo\Model\Elasticsearch
  */
 class Resource
 {

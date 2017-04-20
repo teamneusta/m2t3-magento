@@ -9,7 +9,7 @@
  * @license https://opensource.org/licenses/BSD-3-Clause BSD-3-Clause License
  */
 
-namespace TeamNeustaGmbh\M2T3\Framework\View\Result;
+namespace TeamNeustaGmbh\Magentypo\Framework\View\Result;
 
 use Magento\Framework\App\ResponseInterface;
 use Magento\Framework;

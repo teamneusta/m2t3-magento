@@ -16,14 +16,14 @@
  * Time: 21:59
  */
 
-namespace TeamNeustaGmbh\M2T3\Block;
+namespace TeamNeustaGmbh\Magentypo\Block;
 
 use Magento\Framework\View\Element\Template;
 
 /**
  * Class Footer
  *
- * @package TeamNeustaGmbh\M2T3\Block
+ * @package TeamNeustaGmbh\Magentypo\Block
  */
 class Footer  extends Template
 {
