@@ -11,7 +11,7 @@
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:App/etc/routes.xsd">
     <router id="standard">
         <route id="_fragment" frontName="_fragment">
-            <module name="Neusta_Magentypo" />
+            <module name="TeamNeustaGmbh_Magentypo" />
         </route>
     </router>
 </config>
