@@ -15,9 +15,9 @@
         <arguments>
             <argument name="layoutReaderPool" xsi:type="object">pageConfigRenderPool</argument>
             <argument name="generatorPool" xsi:type="object">pageLayoutGeneratorPool</argument>
-            <argument name="template" xsi:type="string">Neusta_Magentypo::root.phtml</argument>
-            <argument name="typoTemplate" xsi:type="string">Neusta_Magentypo::magentypo/root.phtml</argument>
-            <argument name="typoBodyClassTemplate" xsi:type="string">Neusta_Magentypo::magentypo/body.phtml</argument>
+            <argument name="template" xsi:type="string">TeamNeustaGmbh_Magentypo::root.phtml</argument>
+            <argument name="typoTemplate" xsi:type="string">TeamNeustaGmbh_Magentypo::magentypo/root.phtml</argument>
+            <argument name="typoBodyClassTemplate" xsi:type="string">TeamNeustaGmbh_Magentypo::magentypo/body.phtml</argument>
         </arguments>
     </type>
     <type name="\TeamNeustaGmbh\Magentypo\Model\Index" shared="false"/>

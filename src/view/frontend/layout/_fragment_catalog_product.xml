@@ -10,7 +10,7 @@
 
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <referenceContainer name="content">
-        <block class="\TeamNeustaGmbh\Magentypo\Block\Catalog\Product\ProductList" name="product_tile" template="Neusta_Magentypo::catalog/product/view.phtml" />
-        <block class="\TeamNeustaGmbh\Magentypo\Block\Catalog\Product\ProductList" name="product_list" template="Neusta_Magentypo::catalog/product/list.phtml" />
+        <block class="\TeamNeustaGmbh\Magentypo\Block\Catalog\Product\ProductList" name="product_tile" template="TeamNeustaGmbh_Magentypo::catalog/product/view.phtml" />
+        <block class="\TeamNeustaGmbh\Magentypo\Block\Catalog\Product\ProductList" name="product_list" template="TeamNeustaGmbh_Magentypo::catalog/product/list.phtml" />
     </referenceContainer>
 </page>
