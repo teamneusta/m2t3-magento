@@ -62,7 +62,7 @@ class Product extends Action
 
         $productIds = explode(',', $productIds);
 
-        if (count($productIds) < 1) {
+        if (count($productIds) > 1) {
             $this->getResponse()->setBody("multiple ids not supported yet.")->sendResponse();
             return;
         }
