@@ -73,6 +73,11 @@ class Categories implements IndexerInterface, MviewInterface
             ->load();
         /** @var \Magento\Catalog\Model\Category $category */
         foreach ($loadedCategoryCollection as $category){
+
+            if ($category->getLevel() < 2) {
+                continue;
+            }
+
             $id = $category->getId();
             $categoryDocuments[] = new \Elastica\Document($id,
                 [
