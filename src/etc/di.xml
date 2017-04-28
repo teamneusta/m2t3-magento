@@ -21,12 +21,7 @@
             <argument name="typoBodyClassTemplate" xsi:type="string">TeamNeustaGmbh_Magentypo::magentypo/body.phtml</argument>
         </arguments>
     </type>
-    <type name="\TeamNeustaGmbh\Magentypo\Model\Index" shared="false">
-        <arguments>
-            <argument name="host" xsi:type="string">elasticsearch</argument>
-            <argument name="port" xsi:type="string">9200</argument>
-        </arguments>
-    </type>
+    <type name="\TeamNeustaGmbh\Magentypo\Model\Index" shared="false"/>
     <!-- Avoid rendering of META and TITLE Data in magentypo-head request -->
     <preference for="\Magento\Framework\View\Page\Config\Renderer" type="\TeamNeustaGmbh\Magentypo\Framework\View\Page\Config\Renderer" />
 
