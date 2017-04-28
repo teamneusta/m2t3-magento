@@ -1,12 +1,13 @@
 ## WORK IN PROGRESS - Neusta M2T3
 
-Configuration of elasticsearch host will be placed in env.php.
+Configuration of elasticsearch host will be placed in env.php
+
 Default value will be
 Host: elasticsearch
 Port: 9200
 
 elasticsearch config block in env.php :
-```
+```php
 array(
     elastic => array(
         default => array(
@@ -25,7 +26,7 @@ Returns only content from within `<head>`-Tag.
 
 For example:
 
-```
+```html
 <script>
     var require = {
         "baseUrl": "http://192.168.0.200/pub/static/frontend/Magento/luma/en_US"
@@ -57,3 +58,7 @@ with specific Parameters each block is availiable:
 ##### minicart
 ```?magentypo=minicart```
 
+### Known problems
+
+The generation of urls (e.g. for the category index) only works correctly if "Use Webserver Rewrites" is set to true.
+[See Issue #1](https://github.com/teamneusta/m2t3-magento)
