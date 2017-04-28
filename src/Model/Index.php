@@ -12,8 +12,7 @@
 
 namespace TeamNeustaGmbh\Magentypo\Model;
 
-use Magento\Framework\App\DeploymentConfig;
-use Magento\Framework\ObjectManager\ObjectManager;
+use TeamNeustaGmbh\Magentypo\Model\Elasticsearch\ConfigInterface;
 
 /**
  * Class Index
@@ -49,17 +48,17 @@ class Index
     /**
      * Index constructor.
      *
-     * @param DeploymentConfig $config
-     * @param string|null      $host
-     * @param int|null         $port
+     * @param ConfigInterface $config
+     * @param string|null     $host
+     * @param int|null        $port
      *
      * @throws \Elastica\Exception\InvalidException
      * @throws \Elastica\Exception\ResponseException
      */
-    public function __construct(DeploymentConfig $config, $host = null, $port = null)
+    public function __construct(ConfigInterface $config, $host = null, $port = null)
     {
-        $this->host = $host ?? $config->get('elastic/default/host');
-        $this->port = $port ?? $config->get('elastic/default/port');
+        $this->host = $host ?? $config->getHost();
+        $this->port = $port ?? $config->getPort();
 
         $this->_init();
         $this->_createIndex();
