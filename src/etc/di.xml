@@ -11,7 +11,6 @@
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
     <!-- change Template for magentypo head request -->
     <preference for="\Magento\Framework\View\Result\Page" type="\TeamNeustaGmbh\Magentypo\Framework\View\Result\Page" />
-    <preference for="\TeamNeustaGmbh\Magentypo\Model\Elasticsearch\ConfigInterface" type="\TeamNeustaGmbh\Magentypo\Model\Elasticsearch\Config" />
     <type name="\TeamNeustaGmbh\Magentypo\Framework\View\Result\Page">
         <arguments>
             <argument name="layoutReaderPool" xsi:type="object">pageConfigRenderPool</argument>
@@ -26,6 +25,7 @@
     <preference for="\Magento\Framework\View\Page\Config\Renderer" type="\TeamNeustaGmbh\Magentypo\Framework\View\Page\Config\Renderer" />
 
     <!-- Indexer related Stuff -->
+    <preference for="\TeamNeustaGmbh\Magentypo\Model\Elasticsearch\ConfigInterface" type="\TeamNeustaGmbh\Magentypo\Model\Elasticsearch\Config" />
     <type name="\TeamNeustaGmbh\Magentypo\Model\Indexer\CustomerGroup">
         <arguments>
             <argument name="customerGroups" xsi:type="object">\Magento\Customer\Model\ResourceModel\Group\Collection</argument>
