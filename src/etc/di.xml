@@ -25,6 +25,7 @@
     <preference for="\Magento\Framework\View\Page\Config\Renderer" type="\TeamNeustaGmbh\Magentypo\Framework\View\Page\Config\Renderer" />
 
     <!-- Indexer related Stuff -->
+    <preference for="\TeamNeustaGmbh\Magentypo\Model\Elasticsearch\ConfigInterface" type="\TeamNeustaGmbh\Magentypo\Model\Elasticsearch\Config" />
     <type name="\TeamNeustaGmbh\Magentypo\Model\Indexer\CustomerGroup">
         <arguments>
             <argument name="customerGroups" xsi:type="object">\Magento\Customer\Model\ResourceModel\Group\Collection</argument>
