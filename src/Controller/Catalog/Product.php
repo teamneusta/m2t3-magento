@@ -4,17 +4,22 @@
  *
  * Copyright (c) 2017 neusta GmbH | Ein team neusta Unternehmen
  *
- * For the full copyright and license information, please view the LICENSE file that was distributed with this source code.
+ * For the full copyright and license information, please view the LICENSE file that was distributed with this source
+ * code.
  *
  * @license https://opensource.org/licenses/BSD-3-Clause BSD-3-Clause License
+ *
+ * @author  Julian Nuß <j.nuss@neusta.de>
  */
 
 namespace TeamNeustaGmbh\Magentypo\Controller\Catalog;
 
 use Magento\Framework\App\Action\Action;
+use Magento\Framework\App\Response\Http;
 use Magento\Framework\Controller\ResultFactory;
-use Magento\Framework\View\Result\PageFactory;
+use Magento\Framework\View\Element\AbstractBlock;
 use Magento\Framework\App\Action\Context;
+use TeamNeustaGmbh\Magentypo\Block\Catalog\Product\RendererInterface;
 
 /**
  * Class Product
@@ -23,10 +28,8 @@ use Magento\Framework\App\Action\Context;
  */
 class Product extends Action
 {
-    /**
-     * @var PageFactory
-     */
-    private $_resultPageFactory;
+    const DEFAULT_RENDERER = 'default';
+    const ERROR_MESSAGE_NO_PRODUCT_ID = 'No product id given. You must provide at least 1 product id (parameter: id)';
 
     /**
      * @var \Magento\Framework\App\RequestInterface
@@ -36,38 +39,84 @@ class Product extends Action
     /**
      * View constructor.
      *
-     * @param Context     $context
-     * @param PageFactory $resultPageFactory
+     * @param Context $context
      */
-    public function __construct(Context $context, PageFactory $resultPageFactory)
+    public function __construct(Context $context)
     {
         $this->request = $context->getRequest();
-        $this->_resultPageFactory = $resultPageFactory;
         parent::__construct($context);
     }
 
     /**
      * Dispatch request
-     *
-     * @return \Magento\Framework\Controller\ResultInterface|ResponseInterface
-     * @throws \Magento\Framework\Exception\NotFoundException
      */
     public function execute()
     {
-        /** @var \Magento\Framework\View\Result\Page $page */
-        $page = $this->resultFactory->create(ResultFactory::TYPE_PAGE);
-        /** @var \Magento\Framework\View\Layout $layout */
-        $layout = $page->getLayout();
-        $productIds = $this->request->getParam('id');
+        $productIds = $this->getProductIdsFromRequest();
 
-        $productIds = explode(',', $productIds);
-
-        if (count($productIds) > 1) {
-            $this->getResponse()->setBody("multiple ids not supported yet.")->sendResponse();
+        if (count($productIds) === 0) {
+            $this->renderResponse(400, self::ERROR_MESSAGE_NO_PRODUCT_ID);
             return;
         }
-        $productTile = $layout->getBlock('product_tile')->setProduct($productIds[0])->toHtml();
-        $this->getResponse()->setBody($productTile)->sendResponse();
+
+        $this->renderBlock($this->getProductRendererBlock(), $productIds);
+    }
+
+    /**
+     * Calls the render method of the RendererInterface and sends a respond with code 200
+     *
+     * @param RendererInterface $renderer
+     * @param \int[]            $productIds
+     */
+    private function renderBlock(RendererInterface $renderer, int ...$productIds)
+    {
+        $renderer->setProductIds($productIds);
+        $this->renderResponse(200, $renderer->render());
+    }
+
+    /**
+     * Sends a response with given `statusCode` and `body` to the client
+     *
+     * @param int    $statusCode
+     * @param string $body
+     */
+    private function renderResponse(int $statusCode, string $body)
+    {
+        /** @var Http $response */
+        $response = $this->getResponse();
+
+        $response->setHttpResponseCode($statusCode)
+            ->setBody($body)
+            ->sendResponse();
+    }
+
+    private function getProductIdsFromRequest()
+    {
+        $productIds = $this->request->getParam('id');
+        $productIds = explode(',', $productIds);
+
+        $result = [];
+        foreach ($productIds as $productId) {
+            if (is_numeric($productId) && (string)(int)$productId === $productId) {
+                $result[] = (int)$productId;
+            }
+        }
+
+        return $result;
+    }
+
+    /**
+     * @return AbstractBlock|RendererInterface|false
+     */
+    private function getProductRendererBlock()
+    {
+        $type = $this->request->getParam('type', 'default');
+
+        /** @var \Magento\Framework\View\Result\Page $page */
+        /** @noinspection ExceptionsAnnotatingAndHandlingInspection */
+        $page = $this->resultFactory->create(ResultFactory::TYPE_PAGE);
+
+        return $page->getLayout()->getBlock('m2t3.product.renderer.' . strtolower($type));
     }
 
 }
