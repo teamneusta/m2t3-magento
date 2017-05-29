@@ -18,6 +18,7 @@ use Magento\Catalog\Api\Data\ProductInterface;
 use Magento\Catalog\Block\Product\AbstractProduct;
 use Magento\Catalog\Block\Product\Context;
 use Magento\Catalog\Model\Product;
+use Magento\Catalog\Helper\Output;
 use Magento\Catalog\Model\ProductRepository;
 use Magento\Framework\App\ActionInterface;
 use Magento\Framework\Exception\NoSuchEntityException;
@@ -43,57 +44,72 @@ class DefaultRenderer extends AbstractProduct implements RendererInterface
     protected $urlHelper;
 
     /**
-     * @var int
+     * @var \int[]
      */
-    private $productId;
+    private $productIds;
 
     /**
-     * View constructor.
-     *
+     * @var Output
+     */
+    private $output;
+
+    /**
      * @param Context           $context
      * @param ProductRepository $productRepository
      * @param UrlHelper         $urlHelper
+     * @param Output            $output
      * @param array             $data
      */
     public function __construct(
         Context $context,
         ProductRepository $productRepository,
         UrlHelper $urlHelper,
+        Output $output,
         array $data = []
     ) {
         $this->productRepository = $productRepository;
         $this->urlHelper = $urlHelper;
+        $this->output = $output;
 
         $data['cache_lifetime'] = null;
 
         parent::__construct($context, $data);
     }
 
-    /**
-     * Sets the product id.
-     *
-     * @param int $productId
-     */
-    public function setProductId($productId)
+    public function setProductIds(int ...$productIds)
     {
-        $this->productId = $productId;
+        $this->productIds = $productIds;
+    }
+
+    public function getProductIds() : array
+    {
+        return $this->productIds;
+    }
+
+    public function render(): string
+    {
+        return $this->toHtml();
     }
 
     /**
-     * Prepare and return product
+     * Load product from repository and return it
+     *
+     * @param int $productId
      *
      * @return ProductInterface
      *
      * @throws NoSuchEntityException
      */
-    public function getProduct(): ProductInterface
+    public function getProductById(int $productId): ProductInterface
     {
-        /** @noinspection UnSafeIsSetOverArrayInspection */
-        if (!$this->hasData('product')) {
-            $this->setData('product', $this->productRepository->getById($this->productId));
+        $cacheKey = 'product_' . $productId;
+
+        if (!$this->hasData($cacheKey)) {
+            $product = $this->productRepository->getById($productId);
+            $this->setData($cacheKey, $product);
         }
 
-        return $this->getData('product');
+        return $this->getData($cacheKey);
     }
 
     /**
@@ -119,16 +135,6 @@ class DefaultRenderer extends AbstractProduct implements RendererInterface
     }
 
     /**
-     * Render product html.
-     *
-     * @return string
-     */
-    public function render(): string
-    {
-        return $this->toHtml();
-    }
-
-    /**
      * Returns the template if configured, else the default.
      *
      * @return string
@@ -136,5 +142,19 @@ class DefaultRenderer extends AbstractProduct implements RendererInterface
     public function getTemplate() : string
     {
         return $this->getData('template') ?? self::DEFAULT_TEMPLATE;
+    }
+
+    /**
+     * Refactored this call from the template to the block, to make the dependency explicit.
+     *
+     * @param $product
+     * @param $attributeHtml
+     * @param $attribute
+     *
+     * @return string
+     */
+    public function renderProductAttribute($product, $attributeHtml, $attribute)
+    {
+        return $this->output->productAttribute($product, $attributeHtml, $attribute);
     }
 }

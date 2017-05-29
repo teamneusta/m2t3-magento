@@ -19,7 +19,6 @@ use Magento\Framework\App\Response\Http;
 use Magento\Framework\Controller\ResultFactory;
 use Magento\Framework\View\Element\AbstractBlock;
 use Magento\Framework\App\Action\Context;
-use TeamNeustaGmbh\Magentypo\Block\Catalog\Product\ListRendererInterface;
 use TeamNeustaGmbh\Magentypo\Block\Catalog\Product\RendererInterface;
 
 /**
@@ -30,6 +29,7 @@ use TeamNeustaGmbh\Magentypo\Block\Catalog\Product\RendererInterface;
 class Product extends Action
 {
     const DEFAULT_RENDERER = 'default';
+    const ERROR_MESSAGE_NO_PRODUCT_ID = 'No product id given. You must provide at least 1 product id (parameter: id)';
 
     /**
      * @var \Magento\Framework\App\RequestInterface
@@ -52,93 +52,35 @@ class Product extends Action
      */
     public function execute()
     {
-        $productIds = $this->request->getParam('id');
-        $productIds = explode(',', $productIds);
+        $productIds = $this->getProductIdsFromRequest();
 
-        $renderer = $this->getProductRendererBlock(
-            $this->request->getParam('type', 'default')
-        );
-
-        if ($renderer === false) {
-            $this->sendResponse(400, 'Invalid type given');
+        if (count($productIds) === 0) {
+            $this->renderResponse(400, self::ERROR_MESSAGE_NO_PRODUCT_ID);
             return;
         }
 
-        switch (count($productIds)) {
-            case 0:
-                $this->handleNoProduct();
-                break;
-            case 1:
-                /** @noinspection PhpParamsInspection */
-                $this->handleSingleProduct($renderer, $productIds[0]);
-                break;
-            default:
-                /** @noinspection PhpParamsInspection */
-                $this->handleMultipleProducts($renderer, $productIds);
-        }
+        $this->renderBlock($this->getProductRendererBlock(), $productIds);
     }
 
     /**
-     * Handles rendering of no products
+     * Calls the render method of the RendererInterface and sends a respond with code 200
      *
-     * @return void
+     * @param RendererInterface $renderer
+     * @param \int[]            $productIds
      */
-    private function handleNoProduct()
+    private function renderBlock(RendererInterface $renderer, int ...$productIds)
     {
-        $this->sendResponse(400, 'No product id given');
+        $renderer->setProductIds($productIds);
+        $this->renderResponse(200, $renderer->render());
     }
 
     /**
-     * Handles rendering of a single product
-     *
-     * @param RendererInterface|ListRendererInterface $renderer
-     * @param int                                     $productId
-     *
-     * @return void
-     */
-    private function handleSingleProduct($renderer, $productId)
-    {
-        if ($renderer instanceof RendererInterface) {
-            $renderer->setProductId($productId);
-            $this->sendResponse(200, $renderer->render());
-        } else if ($renderer instanceof ListRendererInterface) {
-            $renderer->setProductIds([$productId]);
-            $this->sendResponse(200, $renderer->render());
-        } else {
-            $this->sendResponse(
-                400,
-                'Renderer for single product must implement ReaderInterface or ListReaderInterface'
-            );
-        }
-    }
-
-    /**
-     * Handles rendering of multiple products
-     *
-     * @param ListRendererInterface $renderer
-     * @param array                 $productIds
-     *
-     * @return void
-     */
-    private function handleMultipleProducts($renderer, array $productIds)
-    {
-        if ($renderer instanceof ListRendererInterface) {
-            $renderer->setProductIds($productIds);
-            $this->sendResponse(200, $renderer->render());
-        } else {
-            $this->sendResponse(400, 'Renderer for multiple products must implement ListReaderInterface');
-        }
-    }
-
-    /**
-     * Sends the response directly
+     * Sends a response with given `statusCode` and `body` to the client
      *
      * @param int    $statusCode
      * @param string $body
-     *
-     * @return void
      */
-    private function sendResponse(int $statusCode, string $body)
+    private function renderResponse(int $statusCode, string $body)
     {
         /** @var Http $response */
         $response = $this->getResponse();
@@ -148,13 +90,28 @@ class Product extends Action
             ->sendResponse();
     }
 
-    /**
-     * @param string $type
-     *
-     * @return AbstractBlock|false
-     */
-    private function getProductRendererBlock($type = null)
+    private function getProductIdsFromRequest()
     {
+        $productIds = $this->request->getParam('id');
+        $productIds = explode(',', $productIds);
+
+        $result = [];
+        foreach ($productIds as $productId) {
+            if (is_numeric($productId) && (string)(int)$productId === $productId) {
+                $result[] = (int)$productId;
+            }
+        }
+
+        return $result;
+    }
+
+    /**
+     * @return AbstractBlock|RendererInterface|false
+     */
+    private function getProductRendererBlock()
+    {
+        $type = $this->request->getParam('type', 'default');
+
         /** @var \Magento\Framework\View\Result\Page $page */
         /** @noinspection ExceptionsAnnotatingAndHandlingInspection */
         $page = $this->resultFactory->create(ResultFactory::TYPE_PAGE);

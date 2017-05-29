@@ -14,37 +14,15 @@
 
 namespace TeamNeustaGmbh\Magentypo\Block\Catalog\Product;
 
-use Magento\Catalog\Api\Data\ProductInterface;
-use Magento\Framework\Exception\NoSuchEntityException;
-
 /**
  * Interface RendererInterface
  * @package TeamNeustaGmbh\Magentypo\Block\Catalog\Product
  */
 interface RendererInterface
 {
-    /**
-     * Sets the id of the product
-     *
-     * @param int $productId
-     *
-     * @return void
-     */
-    public function setProductId($productId);
+    public function setProductIds(int ...$productId);
 
-    /**
-     * Returns the product for the set id.
-     *
-     * @return ProductInterface
-     *
-     * @throws NoSuchEntityException
-     */
-    public function getProduct(): ProductInterface;
+    public function getProductIds() : array;
 
-    /**
-     * Render product html.
-     *
-     * @return string
-     */
     public function render(): string;
 }
