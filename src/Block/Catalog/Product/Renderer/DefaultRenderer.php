@@ -76,17 +76,17 @@ class DefaultRenderer extends AbstractProduct implements RendererInterface
         parent::__construct($context, $data);
     }
 
-    public function setProductIds(int ...$productIds)
+    public function setProductIds($productIds)
     {
         $this->productIds = $productIds;
     }
 
-    public function getProductIds() : array
+    public function getProductIds()
     {
         return $this->productIds;
     }
 
-    public function render(): string
+    public function render()
     {
         return $this->toHtml();
     }
@@ -100,7 +100,7 @@ class DefaultRenderer extends AbstractProduct implements RendererInterface
      *
      * @throws NoSuchEntityException
      */
-    public function getProductById(int $productId): ProductInterface
+    public function getProductById($productId)
     {
         $cacheKey = 'product_' . $productId;
 
@@ -119,7 +119,7 @@ class DefaultRenderer extends AbstractProduct implements RendererInterface
      *
      * @return array
      */
-    public function getAddToCartPostParams(Product $product): array
+    public function getAddToCartPostParams(Product $product)
     {
         $url = $this->getAddToCartUrl($product);
 
@@ -139,7 +139,7 @@ class DefaultRenderer extends AbstractProduct implements RendererInterface
      *
      * @return string
      */
-    public function getTemplate() : string
+    public function getTemplate()
     {
         return $this->getData('template') ?? self::DEFAULT_TEMPLATE;
     }

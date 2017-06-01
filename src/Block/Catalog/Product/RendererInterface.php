@@ -20,9 +20,9 @@ namespace TeamNeustaGmbh\Magentypo\Block\Catalog\Product;
  */
 interface RendererInterface
 {
-    public function setProductIds(int ...$productId);
+    public function setProductIds($productIds);
 
-    public function getProductIds() : array;
+    public function getProductIds();
 
-    public function render(): string;
+    public function render();
 }
