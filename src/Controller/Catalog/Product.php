@@ -68,7 +68,7 @@ class Product extends Action
      * @param RendererInterface $renderer
      * @param \int[]            $productIds
      */
-    private function renderBlock(RendererInterface $renderer, int ...$productIds)
+    private function renderBlock(RendererInterface $renderer, $productIds)
     {
         $renderer->setProductIds($productIds);
         $this->renderResponse(200, $renderer->render());
@@ -80,7 +80,7 @@ class Product extends Action
      * @param int    $statusCode
      * @param string $body
      */
-    private function renderResponse(int $statusCode, string $body)
+    private function renderResponse($statusCode, $body)
     {
         /** @var Http $response */
         $response = $this->getResponse();
